@@ -209,26 +209,26 @@ async def handle_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     # 管理員紀錄訊息
-# 改寫 user_last_log.json 結構為 list 儲存所有訊息
-try:
-    with open(LOG_TRACK_FILE, "r", encoding="utf-8") as f:
-        last_logs = json.load(f)
-except FileNotFoundError:
-    last_logs = {}
+    try:
+        with open(LOG_TRACK_FILE, "r", encoding="utf-8") as f:
+            last_logs = json.load(f)
+    except FileNotFoundError:
+        last_logs = {}
 
-# 刪除該用戶曾經發送的所有訊息
-if user_id in last_logs:
-    for msg_id in last_logs[user_id]:
-        try:
-            await context.bot.delete_message(chat_id=ADMIN_GROUP_ID, message_id=msg_id)
-        except Exception:
-            pass
+    # 刪除該用戶曾經發送的所有訊息
+    if user_id in last_logs:
+        for msg_id in last_logs[user_id]:
+            try:
+                await context.bot.delete_message(chat_id=ADMIN_GROUP_ID, message_id=msg_id)
+            except Exception:
+                pass
 
-# 發送新的訊息，並記錄 message_id
-sent = await context.bot.send_message(chat_id=ADMIN_GROUP_ID, text=log_message)
-last_logs[user_id] = [sent.message_id]
-with open(LOG_TRACK_FILE, "w", encoding="utf-8") as f:
-    json.dump(last_logs, f, ensure_ascii=False, indent=2)
+    # 發送新的訊息，並記錄 message_id
+    sent = await context.bot.send_message(chat_id=ADMIN_GROUP_ID, text=log_message)
+    last_logs[user_id] = [sent.message_id]
+    with open(LOG_TRACK_FILE, "w", encoding="utf-8") as f:
+        json.dump(last_logs, f, ensure_ascii=False, indent=2)
+
 
 
     # 更新統計摘要（編輯訊息）
