@@ -1,9 +1,14 @@
 {
   "🇹🇼 台灣": [
     {
+      "title": "新北教育局(可+身分證正反.良民證)",
+      "url": "https://t.me/AurictideData/78",
+      "category": "教育"
+    },
+    {
       "title": "旅行社明細",
       "url": "https://t.me/AurictideData/69",
-      "category": "全部"
+      "category": ""
     },
     {
       "title": "南部社會大學",
@@ -86,11 +91,16 @@
     },
     {
       "title": "醫療明細",
-      "url": "https://t.me/AurictideData/9",
+      "url": "https://t.me/AurictideData/72",
       "category": "醫療"
     }
   ],
   "🇹🇭 泰國": [
+     {
+      "title": "藥劑師協會(醫師)",
+      "url": "https://t.me/AurictideData/51",
+      "category": "醫療"
+    },
     {
       "title": "內觀禪修",
       "url": "https://t.me/AurictideData/51",
